@@ -1,0 +1,136 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+
+noremap <CR> :nohlsearch<CR>
+let g:indentLine_color_term = 237
+
+" ctags
+" set tags=./tags,tags,../tags
+set tags=tags;/
+
+" line numbers
+set number
+:highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" highlight variable under cursorxi in vim like in netbeans
+:autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
+" highlight unwanted(trailing) whitespace
+" + have this highlighting not appear whilst you are typing in insert mode
+" + have the highlighting of whitespace apply when you open new buffers
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Solarized
+syntax on
+set background=dark
+let g:solarized_termcolors = 256
+colorscheme solarized
+
+" Change default leader key
+let mapleader = ','
+
+" searching
+set ignorecase smartcase incsearch hlsearch
+
+" Always show current position
+set ruler
+
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
+
+" <TAB> Behavior
+set expandtab
+set smarttab
+
+set shiftwidth=4
+set tabstop=4
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Format scala code
+let g:scala_sort_across_groups=1
+au BufEnter *.scala setl formatprg=java\ -jar\ ~/.vim/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
+nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
+
+
+
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+" NerdTree
+map <leader>n :NERDTreeToggle<cr>
+map <leader>r :NERDTreeFind<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" set paste
+set pastetoggle=<F2>
+
+" Wildmenu completion: use for file exclusions"
+set wildmenu
+set wildmode=list:longest
+set wildignore+=.hg,.git,.svn " Version Controls"
+set wildignore+=*.aux,*.out,*.toc "Latex Indermediate files"
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Binary Imgs"
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest "Compiled Object files"
+set wildignore+=*.spl "Compiled speolling world list"
+set wildignore+=*.sw? "Vim swap files"
+set wildignore+=*.DS_Store "OSX SHIT"
+set wildignore+=*.luac "Lua byte code"
+set wildignore+=migrations "Django migrations"
+set wildignore+=*.pyc "Python Object codes"
+set wildignore+=*.orig "Merge resolution files"
+set wildignore+=*.class "java/scala class files"
+set wildignore+=*/target/* "sbt target directory"
+
+" Rainbow parantheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+" colorcolumn / print margin
+" :set colorcolumn=120
+
+" When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
+set scrolloff=8
