@@ -7,7 +7,6 @@ filetype plugin indent on
 
 
 noremap <CR> :nohlsearch<CR>
-let g:indentLine_color_term = 237
 
 " ctags
 " set tags=./tags,tags,../tags
