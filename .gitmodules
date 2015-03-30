@@ -1,9 +1,6 @@
 [submodule "bundle/ctrip.vim"]
 	path = bundle/ctrip.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/indentLine"]
-	path = bundle/indentLine
-	url = https://github.com/Yggdroot/indentLine.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -37,3 +34,18 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/vim-coffee-script"]
+	path = bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "bundle/vim-bundler"]
+	path = bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git
+[submodule "bundle/ag.vim"]
+	path = bundle/ag.vim
+	url = https://github.com/rking/ag.vim

@@ -1,5 +1,5 @@
 nnoremap <silent> <F2> :NERDTreeMirrorToggle<CR>
-let NERDTreeShowBookmarks=0
+let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 let NERDTreeMouseMode=2
 let g:nerdtree_tabs_focus_on_files=1
