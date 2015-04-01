@@ -50,5 +50,5 @@
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim
 [submodule "vim-haml"]
-	path = vim-haml
+	path = bundle/vim-haml
 	url = https://github.com/tpope/vim-haml.git
