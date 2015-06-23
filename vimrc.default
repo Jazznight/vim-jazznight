@@ -27,7 +27,10 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
+Plugin 'rizzatti/dash.vim'
 
+
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()            " required
 filetype plugin indent on    " required
 syntax on
@@ -69,7 +72,7 @@ let g:solarized_termcolors = 256
 colorscheme solarized
 
 " Change default leader key
-let mapleader = ','
+let mapleader = ' '
 
 " searching
 set ignorecase smartcase incsearch hlsearch
@@ -105,8 +108,11 @@ au BufEnter *.scala setl formatprg=java\ -jar\ ~/.vim/scalariform.jar\ -f\ -q\ +
 nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
 
 
-" For Ctag
+" For Tagbar
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+" For Dash
+nmap <silent> <leader>d <Plug>DashSearch
 
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
@@ -166,3 +172,6 @@ set wildignore+=*/target/* "sbt target directory"
 
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
 set scrolloff=8
+set mouse+=a
+
+map <silent> <leader>y "*y
