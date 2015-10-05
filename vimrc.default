@@ -28,6 +28,8 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'rking/ag.vim'
 Plugin 'rizzatti/dash.vim'
 
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'bling/vim-airline'
 
 Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()            " required
@@ -181,6 +183,11 @@ let g:rainbow_active = 1
     \}
 " colorcolumn / print margin
 " :set colorcolumn=120
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+let g:airline_theme = 'sol'
 
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
 set scrolloff=8
